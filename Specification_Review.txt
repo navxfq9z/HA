@@ -1,0 +1,25 @@
+1. How do users know they are writeable or not ? Does the Edit Profile link should be removed for non-writeable users ?
+2. are all fields editable and why there is a dropdown for user profile ? can user have more than one name  in the profile ?
+3. What fields are mandatory in the edit profile ?
+4. what is the character limit on each field ? what if the user/csr exceeds the limit ?
+5. Can all users (not just writeable users) are able to change the profile picture ?
+6. what error Password reset shows when the password length is exceeds or is lower then specified limit ?
+7. should password reset show any error for special character in the password ?
+8. What errror password reset shows for missing atleast one digit and one letter ? 
+9. What error password reset should show for New password and confirm password mismatch ? 
+
+There are the most important questions that needs to be answered:
+1. 'Edit Profile and Change password should have the same behaviour for a user editing his/her profile and a CSR editing a profile.' - The 'same behaviour' is little confusing here, please explain in detail what do you mean by 'same behaviour' ?
+This specification adds a lot of confusion and raises a lot of questions on the requirements.
+
+2. 'As a CSR I can edit any user'  - what happens if the csr and writeable user are editing the profile at the same time ? 
+	This question has high importance because this will cause the race condition and the user may lose the data he/she edited.
+
+3.  Why profile page don't show all the fields which are avaialable for edit in Edit Profile page?
+	This is important because even after entering the details, the user is not able to view the changes in the profile then there is no use of entering/editing the data which will be hidden in the profile.
+
+4. There are no specifications defined for settings page, how the edit settings will work for users and csr ?
+ 	The additional screenshot is adding lot of confusion why its there in the first place and how these settings will have to work for users and csr when there in no specification defined for it.
+
+5. what error the password reset should show in case of failure to update the password ? And what happens when csr/user updating the password at the same time ?
+	The error messages are not defined for the password reset details anywhere and what errors should be server side and what errors should be client side errors. 

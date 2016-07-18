@@ -1,0 +1,39 @@
+	//Bug-1: The method canReceiveMesssage() returns true even if the message has getAddRecipientAllowed has false.
+	//Reason for test failure: The test data returns true in the if block both the times. The test would have caught the bug if...
+	//the data was testing non-admin or otherwise user and recipient are not same. Example:
+	//User user = new User("Non-Admin");
+	//user.setPermissionToModifyRecipients(false);
+
+
+	public boolean canReceiveMessage(Message message, Netapi32Util.User currentUser, Netapi32Util.User recipient){
+		if(currentUser.equals(recipient) || currentUser.getHasPermissionToModifyRecipients()){
+			return message.getAddRecipientAllowed(recipient);
+		}
+		return true;
+	}
+
+
+			for(Message message : messages){
+			if(canReceiveMessage(message, currentUser, recipient)){
+				successfulMessages.add(message);
+
+				//Bug-2: No messages are modified here or recipient is not added.
+				//Reason for test failure: The following statement should be added.
+				//recipientManager.addRecipient(currentUser, successfulMessages);
+
+			}
+			else{
+				failedMessages.add(message);
+			}
+		}
+
+
+		//Bug-3: This block is trying to add recipient to an empty list, it should have been if(!successfulMessages.isEmpty())
+		//Reason for test failure: The test passes a good message and a bad message so this block always skipped. If the test
+		//only passed bad messages then the addRecipient would have thrown error saying - can't add recipient to empty list.
+		if(successfulMessages.isEmpty()){
+			//Bug-3: Here the addRecipient adds the current user as recipient, assuming recipient and current user are same.
+			//Reason for test failure: The test uses only one user as both recipient and currentUser.
+			//The test should try multiple users for testing.
+			recipientManager.addRecipient(currentUser, successfulMessages);
+		}
