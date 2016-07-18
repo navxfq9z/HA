@@ -17,7 +17,7 @@ clean test -Dtest=ApiTest
 Api tests can be found in the file ApiTest.java
 
 #Assignment Part-2 White-Box Testing Excercise
-The assignment report can be found in the file Code_Analysis_White_Box_Testing.txt
+The assignment report can be found in the file **Code_Analysis_White_Box_Testing.txt**
 
 #Assignment Part-3 Specification review Excercise
-The assignment report can found in the file Specification_Review.txt
+The assignment report can found in the file **Specification_Review.txt**
