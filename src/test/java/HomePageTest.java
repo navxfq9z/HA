@@ -30,12 +30,12 @@ public class HomePageTest extends BaseTest{
 //		PLP plp = homePage.search("iPhone");
 //	}
 
-	@Test
+	@Test(enabled=true)
 	public void addToCartFromProductPage(){
 		//Assuming tax is $12
 		double tax = 12;
 		HomePage homePage = new HomePage();
-		homePage.startTest(webDriverManager.get().getNewBrowser("Chrome", "Add iPhone-4S 16G to cart"));
+		homePage.startTest(webDriverManager.get().getNewBrowser("Firefox", "Add iPhone-4S 16G to cart"));
 		ProductsPage productsPage = homePage.clickProductMenu().clickProductMenuiPhones();
 		double price = Float.parseFloat(productsPage.getiPhone4S16GBlackPrice().replace("$","").trim());
 		System.out.println(price);
@@ -47,20 +47,20 @@ public class HomePageTest extends BaseTest{
 		Assert.assertEquals(price, totalPrice, "Price Mismatch!");
 	}
 
-	@Test
+	@Test(enabled=false)
 	public void verifyEmptyCartMessage(){
 		HomePage homePage = new HomePage();
-		homePage.startTest(webDriverManager.get().getNewBrowser("Chrome", "Add iPhone-4S 16G to cart"));
+		homePage.startTest(webDriverManager.get().getNewBrowser("Firefox", "Add iPhone-4S 16G to cart"));
 		ProductsPage productsPage = homePage.clickProductMenu().clickProductMenuiPhones();
 		CartPage cartPage = productsPage.addiPhone4S16GToCart().clickGoToCart();
 		String message = cartPage.removeItemFromCart().trim();
 		Assert.assertEquals(message,"Oops, there is nothing in your cart.", "Empty cart message not found!");
 	}
 
-	@Test
+	@Test(enabled=false)
 	public void verifyProfileSave(){
 		HomePage homePage = new HomePage();
-		homePage.startTest(webDriverManager.get().getNewBrowser("Chrome", "Add iPhone-4S 16G to cart"));
+		homePage.startTest(webDriverManager.get().getNewBrowser("Firefox", "Add iPhone-4S 16G to cart"));
 		MyAccountLoginPage myAccountLoginPage = homePage.clickMyAccount();
 		MyAccountPage myAccountPage = myAccountLoginPage.Login("navaneeth3","HomeAway$1!2)3.");
 		String newAddress = "New Address " + new Date().getTime();

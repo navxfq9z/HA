@@ -19,7 +19,7 @@ public abstract class BaseTest {
 
 	@AfterMethod
 	public final synchronized void tearDown(){
-		webDriverManager.get().cleanUp();
+		//webDriverManager.get().cleanUp();
 	}
 
 }

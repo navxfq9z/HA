@@ -10,7 +10,7 @@ import org.openqa.selenium.WebElement;
 public class HomePage extends PageBase{
 
 	protected static final String SEARCH_BOX = "#main-nav .search";
-	protected static final String NAVBAR_PRODUCT_MENU = "ul#menu-main-menu li.menu-item-object-wpsc_product_category ul.sub-menu";
+	protected static final String NAVBAR_PRODUCT_MENU = "ul#menu-main-menu li.menu-item-33 ul.sub-menu";
 	protected static final String NAVBAR_PRODUCT_MENU_XPATH = "//a[text()='Product Category']";
 	protected static final String MENU_ITEM_IPHONES = "iPhones";
 	protected static final String BUY_NOW_BUTTON = ".slide a.buynow";

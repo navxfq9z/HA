@@ -21,11 +21,11 @@ public class WebDriverManager {
 
 	public WebDriver getNewBrowser(String browser, String testName){
 		if(browser.equals("IE")){
-			File internetExplorerFile = new File("src/test/resources/IEDriverServer.exe");
+			File internetExplorerFile = new File("src/test/resources/chromedriver");
 			System.setProperty("webdriver.ie.driver",internetExplorerFile.getAbsolutePath());
 			driver = new InternetExplorerDriver();
 		}else if(browser.equals("Chrome")){
-			File chromeServerFile = new File("src/test/resources/chromedriver.exe");
+			File chromeServerFile = new File("src/test/resources/chromedriver");
 			System.setProperty("webdriver.chrome.driver",chromeServerFile.getAbsolutePath());
 			driver = new ChromeDriver();
 		}else if(browser.equals("Firefox")){
